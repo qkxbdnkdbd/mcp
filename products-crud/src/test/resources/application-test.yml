@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:products_test;MODE=MySQL;DATABASE_TO_LOWER=TRUE;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:test-schema.sql
+      data-locations: classpath:test-data.sql
+
+logging:
+  level:
+    org.hibernate.SQL: warn
+
+app:
+  jwt:
+    secret: test-jwt-secret-for-products-crud-auth-tests-32
+    expiration-seconds: 86400

@@ -1,0 +1,20 @@
+# Build
+**/target/
+**/node_modules/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs & temp
+*.log
+*.tmp
+
+# Test artifacts
+qww-test-results.json
+qww-db-snapshot.json

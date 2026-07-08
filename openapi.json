@@ -1,0 +1,1151 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "API Documentation",
+    "version" : "1.0"
+  },
+  "paths" : {
+    "/api/products" : {
+      "get" : {
+        "summary" : "list",
+        "description" : "list",
+        "parameters" : [ {
+          "name" : "keyword",
+          "in" : "query",
+          "description" : "",
+          "required" : false,
+          "schema" : {
+            "type" : "string",
+            "nullable" : false
+          }
+        }, {
+          "name" : "status",
+          "in" : "query",
+          "description" : "",
+          "required" : false,
+          "schema" : {
+            "type" : "integer",
+            "nullable" : false
+          }
+        }, {
+          "name" : "categoryId",
+          "in" : "query",
+          "description" : "",
+          "required" : false,
+          "schema" : {
+            "type" : "integer",
+            "nullable" : false
+          }
+        }, {
+          "name" : "supplierId",
+          "in" : "query",
+          "description" : "",
+          "required" : false,
+          "schema" : {
+            "type" : "integer",
+            "nullable" : false
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "code" : {
+                      "type" : "integer",
+                      "description" : ""
+                    },
+                    "message" : {
+                      "type" : "string",
+                      "description" : ""
+                    },
+                    "data" : {
+                      "type" : "object",
+                      "properties" : {
+                        "content" : {
+                          "type" : "array",
+                          "description" : "",
+                          "items" : {
+                            "type" : "object",
+                            "properties" : {
+                              "productId" : {
+                                "type" : "integer",
+                                "description" : "",
+                                "format" : "int64"
+                              },
+                              "productName" : {
+                                "type" : "string",
+                                "description" : ""
+                              },
+                              "barcode" : {
+                                "type" : "string",
+                                "description" : ""
+                              },
+                              "specification" : {
+                                "type" : "string",
+                                "description" : ""
+                              },
+                              "categoryId" : {
+                                "type" : "integer",
+                                "description" : ""
+                              },
+                              "brand" : {
+                                "type" : "string",
+                                "description" : ""
+                              },
+                              "purchasePrice" : {
+                                "type" : "number",
+                                "description" : ""
+                              },
+                              "sellingPrice" : {
+                                "type" : "number",
+                                "description" : ""
+                              },
+                              "unit" : {
+                                "type" : "string",
+                                "description" : ""
+                              },
+                              "stockQuantity" : {
+                                "type" : "integer",
+                                "description" : ""
+                              },
+                              "minStock" : {
+                                "type" : "integer",
+                                "description" : ""
+                              },
+                              "maxStock" : {
+                                "type" : "integer",
+                                "description" : ""
+                              },
+                              "imageUrl" : {
+                                "type" : "string",
+                                "description" : ""
+                              },
+                              "description" : {
+                                "type" : "string",
+                                "description" : ""
+                              },
+                              "status" : {
+                                "type" : "integer",
+                                "description" : ""
+                              },
+                              "createdAt" : {
+                                "type" : "string",
+                                "description" : ""
+                              },
+                              "updatedAt" : {
+                                "type" : "string",
+                                "description" : ""
+                              },
+                              "createdBy" : {
+                                "type" : "string",
+                                "description" : ""
+                              },
+                              "supplierId" : {
+                                "type" : "integer",
+                                "description" : ""
+                              }
+                            },
+                            "description" : "com.qww.products.dto.ProductResponse"
+                          }
+                        },
+                        "pageable" : {
+                          "type" : "object",
+                          "properties" : {
+                            "paged" : {
+                              "type" : "boolean"
+                            },
+                            "unpaged" : {
+                              "type" : "boolean"
+                            },
+                            "pageNumber" : {
+                              "type" : "integer"
+                            },
+                            "pageSize" : {
+                              "type" : "integer"
+                            },
+                            "offset" : {
+                              "type" : "integer",
+                              "format" : "int64"
+                            },
+                            "sort" : {
+                              "type" : "array",
+                              "items" : {
+                                "type" : "object",
+                                "properties" : {
+                                  "direction" : {
+                                    "type" : "string",
+                                    "description" : "{ASC=ASC, DESC=DESC}",
+                                    "enum" : [ "ASC", "DESC" ]
+                                  },
+                                  "property" : {
+                                    "type" : "string",
+                                    "description" : ""
+                                  },
+                                  "ignoreCase" : {
+                                    "type" : "boolean",
+                                    "description" : ""
+                                  },
+                                  "nullHandling" : {
+                                    "type" : "string",
+                                    "description" : "{NATIVE=NATIVE, NULLS_FIRST=NULLS_FIRST, NULLS_LAST=NULLS_LAST}",
+                                    "enum" : [ "NATIVE", "NULLS_FIRST", "NULLS_LAST" ]
+                                  },
+                                  "ascending" : {
+                                    "type" : "boolean"
+                                  },
+                                  "descending" : {
+                                    "type" : "boolean"
+                                  }
+                                },
+                                "description" : "org.springframework.data.domain.Sort"
+                              }
+                            }
+                          },
+                          "description" : ""
+                        },
+                        "total" : {
+                          "type" : "integer",
+                          "description" : "",
+                          "format" : "int64"
+                        },
+                        "empty" : {
+                          "type" : "boolean"
+                        },
+                        "number" : {
+                          "type" : "integer"
+                        },
+                        "size" : {
+                          "type" : "integer"
+                        },
+                        "numberOfElements" : {
+                          "type" : "integer"
+                        },
+                        "sort" : {
+                          "type" : "array",
+                          "items" : {
+                            "type" : "object",
+                            "properties" : {
+                              "direction" : {
+                                "type" : "string",
+                                "description" : "{ASC=ASC, DESC=DESC}",
+                                "enum" : [ "ASC", "DESC" ]
+                              },
+                              "property" : {
+                                "type" : "string",
+                                "description" : ""
+                              },
+                              "ignoreCase" : {
+                                "type" : "boolean",
+                                "description" : ""
+                              },
+                              "nullHandling" : {
+                                "type" : "string",
+                                "description" : "{NATIVE=NATIVE, NULLS_FIRST=NULLS_FIRST, NULLS_LAST=NULLS_LAST}",
+                                "enum" : [ "NATIVE", "NULLS_FIRST", "NULLS_LAST" ]
+                              },
+                              "ascending" : {
+                                "type" : "boolean"
+                              },
+                              "descending" : {
+                                "type" : "boolean"
+                              }
+                            },
+                            "description" : "org.springframework.data.domain.Sort"
+                          }
+                        },
+                        "first" : {
+                          "type" : "boolean"
+                        },
+                        "last" : {
+                          "type" : "boolean"
+                        },
+                        "totalPages" : {
+                          "type" : "integer"
+                        },
+                        "totalElements" : {
+                          "type" : "integer",
+                          "format" : "int64"
+                        }
+                      },
+                      "description" : ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "summary" : "create",
+        "description" : "create",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "required" : [ "productName" ],
+                "type" : "object",
+                "properties" : {
+                  "productName" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "barcode" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "specification" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "categoryId" : {
+                    "type" : "integer",
+                    "description" : ""
+                  },
+                  "brand" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "purchasePrice" : {
+                    "minimum" : 0.00,
+                    "exclusiveMinimum" : false,
+                    "type" : "number",
+                    "description" : ""
+                  },
+                  "sellingPrice" : {
+                    "minimum" : 0.00,
+                    "exclusiveMinimum" : false,
+                    "type" : "number",
+                    "description" : ""
+                  },
+                  "unit" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "stockQuantity" : {
+                    "minimum" : 0,
+                    "type" : "integer",
+                    "description" : ""
+                  },
+                  "minStock" : {
+                    "minimum" : 0,
+                    "type" : "integer",
+                    "description" : ""
+                  },
+                  "maxStock" : {
+                    "minimum" : 0,
+                    "type" : "integer",
+                    "description" : ""
+                  },
+                  "imageUrl" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "description" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "status" : {
+                    "minimum" : 0,
+                    "type" : "integer",
+                    "description" : ""
+                  },
+                  "createdBy" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "supplierId" : {
+                    "type" : "integer",
+                    "description" : ""
+                  }
+                },
+                "description" : ""
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "code" : {
+                      "type" : "integer",
+                      "description" : ""
+                    },
+                    "message" : {
+                      "type" : "string",
+                      "description" : ""
+                    },
+                    "data" : {
+                      "type" : "object",
+                      "properties" : {
+                        "productId" : {
+                          "type" : "integer",
+                          "description" : "",
+                          "format" : "int64"
+                        },
+                        "productName" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "barcode" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "specification" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "categoryId" : {
+                          "type" : "integer",
+                          "description" : ""
+                        },
+                        "brand" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "purchasePrice" : {
+                          "type" : "number",
+                          "description" : ""
+                        },
+                        "sellingPrice" : {
+                          "type" : "number",
+                          "description" : ""
+                        },
+                        "unit" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "stockQuantity" : {
+                          "type" : "integer",
+                          "description" : ""
+                        },
+                        "minStock" : {
+                          "type" : "integer",
+                          "description" : ""
+                        },
+                        "maxStock" : {
+                          "type" : "integer",
+                          "description" : ""
+                        },
+                        "imageUrl" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "description" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "status" : {
+                          "type" : "integer",
+                          "description" : ""
+                        },
+                        "createdAt" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "updatedAt" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "createdBy" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "supplierId" : {
+                          "type" : "integer",
+                          "description" : ""
+                        }
+                      },
+                      "description" : ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/products/{id}" : {
+      "get" : {
+        "summary" : "getById",
+        "description" : "getById",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "code" : {
+                      "type" : "integer",
+                      "description" : ""
+                    },
+                    "message" : {
+                      "type" : "string",
+                      "description" : ""
+                    },
+                    "data" : {
+                      "type" : "object",
+                      "properties" : {
+                        "productId" : {
+                          "type" : "integer",
+                          "description" : "",
+                          "format" : "int64"
+                        },
+                        "productName" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "barcode" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "specification" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "categoryId" : {
+                          "type" : "integer",
+                          "description" : ""
+                        },
+                        "brand" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "purchasePrice" : {
+                          "type" : "number",
+                          "description" : ""
+                        },
+                        "sellingPrice" : {
+                          "type" : "number",
+                          "description" : ""
+                        },
+                        "unit" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "stockQuantity" : {
+                          "type" : "integer",
+                          "description" : ""
+                        },
+                        "minStock" : {
+                          "type" : "integer",
+                          "description" : ""
+                        },
+                        "maxStock" : {
+                          "type" : "integer",
+                          "description" : ""
+                        },
+                        "imageUrl" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "description" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "status" : {
+                          "type" : "integer",
+                          "description" : ""
+                        },
+                        "createdAt" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "updatedAt" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "createdBy" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "supplierId" : {
+                          "type" : "integer",
+                          "description" : ""
+                        }
+                      },
+                      "description" : ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put" : {
+        "summary" : "update",
+        "description" : "update",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "required" : [ "productName" ],
+                "type" : "object",
+                "properties" : {
+                  "productName" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "barcode" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "specification" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "categoryId" : {
+                    "type" : "integer",
+                    "description" : ""
+                  },
+                  "brand" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "purchasePrice" : {
+                    "minimum" : 0.00,
+                    "exclusiveMinimum" : false,
+                    "type" : "number",
+                    "description" : ""
+                  },
+                  "sellingPrice" : {
+                    "minimum" : 0.00,
+                    "exclusiveMinimum" : false,
+                    "type" : "number",
+                    "description" : ""
+                  },
+                  "unit" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "stockQuantity" : {
+                    "minimum" : 0,
+                    "type" : "integer",
+                    "description" : ""
+                  },
+                  "minStock" : {
+                    "minimum" : 0,
+                    "type" : "integer",
+                    "description" : ""
+                  },
+                  "maxStock" : {
+                    "minimum" : 0,
+                    "type" : "integer",
+                    "description" : ""
+                  },
+                  "imageUrl" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "description" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "status" : {
+                    "minimum" : 0,
+                    "type" : "integer",
+                    "description" : ""
+                  },
+                  "createdBy" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "supplierId" : {
+                    "type" : "integer",
+                    "description" : ""
+                  }
+                },
+                "description" : ""
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "code" : {
+                      "type" : "integer",
+                      "description" : ""
+                    },
+                    "message" : {
+                      "type" : "string",
+                      "description" : ""
+                    },
+                    "data" : {
+                      "type" : "object",
+                      "properties" : {
+                        "productId" : {
+                          "type" : "integer",
+                          "description" : "",
+                          "format" : "int64"
+                        },
+                        "productName" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "barcode" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "specification" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "categoryId" : {
+                          "type" : "integer",
+                          "description" : ""
+                        },
+                        "brand" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "purchasePrice" : {
+                          "type" : "number",
+                          "description" : ""
+                        },
+                        "sellingPrice" : {
+                          "type" : "number",
+                          "description" : ""
+                        },
+                        "unit" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "stockQuantity" : {
+                          "type" : "integer",
+                          "description" : ""
+                        },
+                        "minStock" : {
+                          "type" : "integer",
+                          "description" : ""
+                        },
+                        "maxStock" : {
+                          "type" : "integer",
+                          "description" : ""
+                        },
+                        "imageUrl" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "description" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "status" : {
+                          "type" : "integer",
+                          "description" : ""
+                        },
+                        "createdAt" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "updatedAt" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "createdBy" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "supplierId" : {
+                          "type" : "integer",
+                          "description" : ""
+                        }
+                      },
+                      "description" : ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "summary" : "delete",
+        "description" : "delete",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "code" : {
+                      "type" : "integer",
+                      "description" : ""
+                    },
+                    "message" : {
+                      "type" : "string",
+                      "description" : ""
+                    },
+                    "data" : {
+                      "type" : "boolean",
+                      "description" : ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/products/{id}/status" : {
+      "patch" : {
+        "summary" : "updateStatus",
+        "description" : "updateStatus",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "required" : [ "status" ],
+                "type" : "object",
+                "properties" : {
+                  "status" : {
+                    "minimum" : 0,
+                    "type" : "integer",
+                    "description" : ""
+                  }
+                },
+                "description" : ""
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "code" : {
+                      "type" : "integer",
+                      "description" : ""
+                    },
+                    "message" : {
+                      "type" : "string",
+                      "description" : ""
+                    },
+                    "data" : {
+                      "type" : "object",
+                      "properties" : {
+                        "productId" : {
+                          "type" : "integer",
+                          "description" : "",
+                          "format" : "int64"
+                        },
+                        "productName" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "barcode" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "specification" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "categoryId" : {
+                          "type" : "integer",
+                          "description" : ""
+                        },
+                        "brand" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "purchasePrice" : {
+                          "type" : "number",
+                          "description" : ""
+                        },
+                        "sellingPrice" : {
+                          "type" : "number",
+                          "description" : ""
+                        },
+                        "unit" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "stockQuantity" : {
+                          "type" : "integer",
+                          "description" : ""
+                        },
+                        "minStock" : {
+                          "type" : "integer",
+                          "description" : ""
+                        },
+                        "maxStock" : {
+                          "type" : "integer",
+                          "description" : ""
+                        },
+                        "imageUrl" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "description" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "status" : {
+                          "type" : "integer",
+                          "description" : ""
+                        },
+                        "createdAt" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "updatedAt" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "createdBy" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "supplierId" : {
+                          "type" : "integer",
+                          "description" : ""
+                        }
+                      },
+                      "description" : ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "com.qww.products.dto.ProductResponse" : {
+        "type" : "object",
+        "properties" : {
+          "productId" : {
+            "type" : "integer",
+            "description" : "",
+            "format" : "int64"
+          },
+          "productName" : {
+            "type" : "string",
+            "description" : ""
+          },
+          "barcode" : {
+            "type" : "string",
+            "description" : ""
+          },
+          "specification" : {
+            "type" : "string",
+            "description" : ""
+          },
+          "categoryId" : {
+            "type" : "integer",
+            "description" : ""
+          },
+          "brand" : {
+            "type" : "string",
+            "description" : ""
+          },
+          "purchasePrice" : {
+            "type" : "number",
+            "description" : ""
+          },
+          "sellingPrice" : {
+            "type" : "number",
+            "description" : ""
+          },
+          "unit" : {
+            "type" : "string",
+            "description" : ""
+          },
+          "stockQuantity" : {
+            "type" : "integer",
+            "description" : ""
+          },
+          "minStock" : {
+            "type" : "integer",
+            "description" : ""
+          },
+          "maxStock" : {
+            "type" : "integer",
+            "description" : ""
+          },
+          "imageUrl" : {
+            "type" : "string",
+            "description" : ""
+          },
+          "description" : {
+            "type" : "string",
+            "description" : ""
+          },
+          "status" : {
+            "type" : "integer",
+            "description" : ""
+          },
+          "createdAt" : {
+            "type" : "string",
+            "description" : ""
+          },
+          "updatedAt" : {
+            "type" : "string",
+            "description" : ""
+          },
+          "createdBy" : {
+            "type" : "string",
+            "description" : ""
+          },
+          "supplierId" : {
+            "type" : "integer",
+            "description" : ""
+          }
+        },
+        "description" : ""
+      },
+      "org.springframework.data.domain.Sort" : {
+        "type" : "object",
+        "properties" : {
+          "direction" : {
+            "type" : "string",
+            "description" : "{ASC=ASC, DESC=DESC}",
+            "enum" : [ "ASC", "DESC" ]
+          },
+          "property" : {
+            "type" : "string",
+            "description" : ""
+          },
+          "ignoreCase" : {
+            "type" : "boolean",
+            "description" : ""
+          },
+          "nullHandling" : {
+            "type" : "string",
+            "description" : "{NATIVE=NATIVE, NULLS_FIRST=NULLS_FIRST, NULLS_LAST=NULLS_LAST}",
+            "enum" : [ "NATIVE", "NULLS_FIRST", "NULLS_LAST" ]
+          },
+          "ascending" : {
+            "type" : "boolean"
+          },
+          "descending" : {
+            "type" : "boolean"
+          }
+        },
+        "description" : "org.springframework.data.domain.Sort"
+      },
+      "org.springframework.data.domain.Pageable" : {
+        "type" : "object",
+        "properties" : {
+          "paged" : {
+            "type" : "boolean"
+          },
+          "unpaged" : {
+            "type" : "boolean"
+          },
+          "pageNumber" : {
+            "type" : "integer"
+          },
+          "pageSize" : {
+            "type" : "integer"
+          },
+          "offset" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "sort" : {
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "direction" : {
+                  "type" : "string",
+                  "description" : "{ASC=ASC, DESC=DESC}",
+                  "enum" : [ "ASC", "DESC" ]
+                },
+                "property" : {
+                  "type" : "string",
+                  "description" : ""
+                },
+                "ignoreCase" : {
+                  "type" : "boolean",
+                  "description" : ""
+                },
+                "nullHandling" : {
+                  "type" : "string",
+                  "description" : "{NATIVE=NATIVE, NULLS_FIRST=NULLS_FIRST, NULLS_LAST=NULLS_LAST}",
+                  "enum" : [ "NATIVE", "NULLS_FIRST", "NULLS_LAST" ]
+                },
+                "ascending" : {
+                  "type" : "boolean"
+                },
+                "descending" : {
+                  "type" : "boolean"
+                }
+              },
+              "description" : "org.springframework.data.domain.Sort"
+            }
+          }
+        },
+        "description" : ""
+      }
+    }
+  }
+}
